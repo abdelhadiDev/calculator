@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue sur ma calculatrice{% endblock %}
+
+{% block body %}
+
+    <main class="container">
+        <section class="row">
+            <form class="form-inline" method="POST" action="{{ path('calculator') }}">
+                <div class="col-12 my-2">
+                    <input type="text" name="input" id="ecran" class="btn btn-dark btn-lg btn-block text-right" value="{{ result ?? '0' }}">
+                </div>
+                <div class="col-3 py-2">
+                    <span class="btn btn-light btn-lg btn-block">7</span>
+                </div>
+                <div class="col-3 py-2">
+                    <span class="btn btn-light btn-lg btn-block">8</span>
+                </div>
+                <div class="col-3 py-2">
+                    <span class="btn btn-light btn-lg btn-block">9</span>
+                </div>
+                <div class="col-3 py-2">
+                    <span class="btn btn-secondary btn-lg btn-block">+</span>
+                </div>
+                <div class="col-3 py-2">
+                    <span class="btn btn-light btn-lg btn-block">4</span>
+                </div>
+                <div class="col-3 py-2">
+                    <span class="btn btn-light btn-lg btn-block">5</span>
+                </div>
+                <div class="col-3 py-2">
+                    <span class="btn btn-light btn-lg btn-block">6</span>
+                </div>
+                <div class="col-3 py-2">
+                    <span class="btn btn-secondary btn-lg btn-block">-</span>
+                </div>
+                <div class="col-3 py-2">
+                    <span class="btn btn-light btn-lg btn-block">1</span>
+                </div>
+                <div class="col-3 py-2">
+                    <span class="btn btn-light btn-lg btn-block">2</span>
+                </div>
+                <div class="col-3 py-2">
+                    <span class="btn btn-light btn-lg btn-block">3</span>
+                </div>
+                <div class="col-3 py-2">
+                    <span class="btn btn-secondary btn-lg btn-block">*</span>
+                </div>
+                <div class="col-3 py-2">
+                    <span class="btn btn-warning btn-lg btn-block">C</span>
+                </div>
+                <div class="col-3 py-2">
+                    <span class="btn btn-light btn-lg btn-block">0</span>
+                </div>
+                <div class="col-3 py-2">
+                    <button type="submit" class="btn btn-secondary btn-lg btn-block">=</button>
+                </div>
+                <div class="col-3 py-2">
+                    <span class="btn btn-secondary btn-lg btn-block">/</span>
+                </div>
+            </form>
+        </section>
+    </main>
+
+{% endblock %}
