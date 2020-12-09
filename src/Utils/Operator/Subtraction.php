@@ -7,9 +7,8 @@ class Subtraction extends AbstractOperator
 	protected $sign = '-';
     protected int $priority = 1;
 
-	public function process(int $first, int $second): int
+    public function getSign()
     {
-		return $first - $second;
-	}
-
+        return $this->sign;
+    }
 }

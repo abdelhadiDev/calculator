@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Utils\Calculator;
+use App\Utils\CalculatorInterface;
 use App\Utils\Operator\Addition;
 use App\Utils\Operator\Division;
 use App\Utils\Operator\Multiplication;
@@ -19,10 +20,9 @@ class CalculatorController extends AbstractController
     /**
      * @Route("/calculator", name="calculator")
      */
-    public function calculator(Request $request): Response
+    public function calculator(Request $request, CalculatorInterface $calculator): Response
     {
         if ($request->isMethod('POST')) {
-            $calculator = new Calculator();
             $result = $calculator->calculate($request->request->get('input'));
 
             return $this->render('calculator/index.html.twig', [

@@ -7,8 +7,8 @@ class Division extends AbstractOperator
 	protected $sign = '/';
 	protected int $priority = 2;
 
-	public function process(int $first, int $second): int
+    public function getSign()
     {
-		return $first / $second;
-	}
+        return $this->sign;
+    }
 }

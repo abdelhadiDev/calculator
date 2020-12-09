@@ -10,7 +10,22 @@ abstract class AbstractOperator implements OperatorInterface
 	protected $sign = false;
 	protected int $priority = 0;
 
-	public function process(int $first, int $second): int {}
+	public function process(int $first, int $second): int
+    {
+        switch($this->getSign()) {
+            case '*':
+                return $first * $second;
+            case '/':
+                return $first / $second;
+            case '+':
+                return $first + $second;
+            case '-':
+                return $first - $second;
+            default:
+                throw new \Exception('Unknown operator');
+
+        }
+    }
 
 	public function getSign()
     {

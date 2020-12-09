@@ -6,7 +6,7 @@ namespace App\Utils;
 
 use App\Utils\Operator\OperatorFactory;
 
-class Calculator
+class Calculator implements CalculatorInterface
 {
     protected array $operators = [];
     protected array $expressions = [];
