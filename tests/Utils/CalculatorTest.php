@@ -5,6 +5,7 @@ namespace App\Tests\Utils;
 
 
 use App\Utils\Calculator;
+use App\Utils\CalculatorInterface;
 use App\Utils\Operator\Addition;
 use App\Utils\Operator\Division;
 use App\Utils\Operator\Multiplication;
@@ -16,10 +17,22 @@ class CalculatorTest extends TestCase
     public function testCalculate()
     {
         $calculator = new Calculator();
-        $result = $calculator->calculate('4 + 5 * 50');
+        $input = '4 + 5 * 50';
+        $result = $calculator->calculate($input);
 
-        // assert that your calculator added the numbers correctly!
         $this->assertEquals(254, $result);
+        $this->assertIsInt($result);
+        $this->assertIsNotString($result);
+
+        $maxPriorityOfOperator = $calculator->getMaxPriority();
+        $this->assertIsInt($maxPriorityOfOperator);
+
+        $operatorPriority = $calculator->getPriorityOperator($maxPriorityOfOperator);
+        $multiplication = $operatorPriority['*'];
+        $this->assertIsArray($operatorPriority);
+        $this->assertInstanceOf(Multiplication::class, $multiplication);
+        $this->assertEquals($multiplication->getPriority(), 2);
+        $this->assertEquals($multiplication->getSign(), '*');
     }
 
     public function testAddition()

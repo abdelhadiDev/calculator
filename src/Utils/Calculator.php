@@ -34,7 +34,7 @@ class Calculator implements CalculatorInterface
         }
     }
 
-    protected function getMaxPriority(): int
+    public function getMaxPriority(): int
     {
         $priority = 0;
         foreach($this->operators as $operator)
@@ -47,7 +47,7 @@ class Calculator implements CalculatorInterface
         return $priority;
     }
 
-    protected function getPriorityOperator(int $priority): array
+    public function getPriorityOperator(int $priority): array
     {
         $operators = array();
         foreach($this->operators as $operator) {
@@ -83,5 +83,10 @@ class Calculator implements CalculatorInterface
         $this->expressions[$index] = $sum;
 
         $this->expressions = array_values(array_filter($this->expressions));
+    }
+
+    public function getOperators(): array
+    {
+        return $this->operators;
     }
 }
