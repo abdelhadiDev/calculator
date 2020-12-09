@@ -18,6 +18,7 @@ or
 use docker
 docker-compose up
 go to http://calulator.local:8888/calculator
+docker-compose exec php bin/phpunit
 ```
 
 ## Usage

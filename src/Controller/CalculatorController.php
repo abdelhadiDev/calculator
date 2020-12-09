@@ -18,6 +18,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class CalculatorController extends AbstractController
 {
     /**
+     * @Route("/", name="app_default")
      * @Route("/calculator", name="calculator")
      */
     public function calculator(Request $request, CalculatorInterface $calculator): Response
