@@ -1,0 +1,9 @@
+version: '3'
+services:
+  php:
+    build: .
+    ports:
+      - "8888:80"
+    volumes:
+      - ./docker/vhosts:/etc/apache2/sites-enabled
+      - ./docker/php:/usr/local/etc/php
