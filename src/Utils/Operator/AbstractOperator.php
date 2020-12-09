@@ -7,12 +7,12 @@ namespace App\Utils\Operator;
 abstract class AbstractOperator implements OperatorInterface
 {
 
-	protected $sign = false;
-	protected int $priority = 0;
+    protected $sign = false;
+    protected int $priority = 0;
 
-	public function process(int $first, int $second): int
+    public function process(int $first, int $second): int
     {
-        switch($this->getSign()) {
+        switch ($this->getSign()) {
             case '*':
                 return $first * $second;
             case '/':
@@ -23,17 +23,16 @@ abstract class AbstractOperator implements OperatorInterface
                 return $first - $second;
             default:
                 throw new \Exception('Unknown operator');
-
         }
     }
 
-	public function getSign()
+    public function getSign()
     {
-		return $this->sign;
-	}
+        return $this->sign;
+    }
 
-	public function getPriority(): int
+    public function getPriority(): int
     {
-		return $this->priority;
-	}
+        return $this->priority;
+    }
 }

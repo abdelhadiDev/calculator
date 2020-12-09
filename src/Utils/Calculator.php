@@ -17,7 +17,7 @@ class Calculator implements CalculatorInterface
         $this->initiateOperators($input);
 
         $priority = $this->getMaxPriority();
-        for($i = $priority; $i >= 0; $i--) {
+        for ($i = $priority; $i >= 0; $i--) {
             $priorityOperator = $this->getPriorityOperator($i);
             $this->calculateOperators($priorityOperator);
         }
@@ -37,9 +37,8 @@ class Calculator implements CalculatorInterface
     public function getMaxPriority(): int
     {
         $priority = 0;
-        foreach($this->operators as $operator)
-        {
-            if($operator->getPriority() > $priority) {
+        foreach ($this->operators as $operator) {
+            if ($operator->getPriority() > $priority) {
                 $priority = $operator->getPriority();
             }
         }
@@ -50,8 +49,8 @@ class Calculator implements CalculatorInterface
     public function getPriorityOperator(int $priority): array
     {
         $operators = array();
-        foreach($this->operators as $operator) {
-            if($operator->getPriority() == $priority) {
+        foreach ($this->operators as $operator) {
+            if ($operator->getPriority() == $priority) {
                 $operators[$operator->getSign()] = $operator;
             }
         }
@@ -61,9 +60,8 @@ class Calculator implements CalculatorInterface
 
     protected function calculateOperators(array $operators): void
     {
-        foreach($this->expressions as $index => &$part)
-        {
-            if(!array_key_exists($part, $operators) ) {
+        foreach ($this->expressions as $index => &$part) {
+            if (!array_key_exists($part, $operators)) {
                 continue;
             }
 
