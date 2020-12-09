@@ -7,7 +7,17 @@ PHP 7.4
 
 ```bash
 git clone git@github.com:abdelhadiDev/calculator.git
+
+Use Symfony server
+
 composer install
+symfony serve -d
+
+or 
+
+use docker
+docker-compose up
+go to http://calulator.local:8888/calculator
 ```
 
 ## Usage
